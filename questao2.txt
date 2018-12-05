@@ -1,0 +1,28 @@
+15/0059213 - Filipe Coelho Hilário Barcelos 
+15/0037074 - Igor Gabriel M. Evangelista
+ 
+Resposta: 
+Stub: Na arquitetura empregada pelo Java RMI os stubs são responsáveis por garantirem a conversão 
+de chamadas recebidas do cliente para chamadas remotas dentro do servidor, onde ele empacota os argumentos 
+recebidos para o método requisitado através da serialização. Na fase de resposta os stubs recebem os 
+argumentos do servidor e desempacotam devolvendo para o cliente. Em relação aos elementos arquiteturais 
+apresentados por Spagnoli e Becker (2003) podemos enquadrar stub como um componente da biblioteca, visto 
+que ele implementa uma função capaz de ser reutilizada independentemente do contexto da aplicação, ao 
+realizar comunicação por parte do cliente.  
+
+Skeleton: Dentro do servidor, os argumentos empacotados pelo stub são passados e conectados com o skeleton, 
+dessa forma, o skeleton realiza o desempacotamento dos dados e invoca implementação dos métodos requisitados 
+pelo servidor. Na fase de resposta o skeleton realiza o empacotamento dos argumentos de resposta e envia para 
+a recepção do stub fora do servidor. Assim com stub podemos enquadrar skeleton como um componente da biblioteca, 
+devido ao fato de ele realizar sempre a comunicação com o servidor e a chamada de métodos requisitados 
+independentemente da aplicação construída.
+
+Registro: O java RMI possui o RMI Registry(Registro) que é responsável por oferecer ao cliente os nomes dos 
+serviços disponíveis pelo servidor. Podemos traçar um paralelo com o modelo de componente descrito por Spagnoli e Becker (2003), 
+visto que ele realiza definições dos serviços disponíveis no servidor para o cliente e essas definições são respeitadas 
+durante a comunicação entre o que o cliente busca dentro do servidor e o que o servidor oferece.
+
+Serialização: É o processo de comunicação entre o cliente e servidor ao realizar empacotamento(marshalling) e 
+desempacotamento(unmarshalling) de chamadas, tanto do stub para o skeleton, quanto do skeleton para o stub. 
+Nesse caso essa serialização atua como framework de componente ao gerenciar a comunicação entre o cliente e o 
+servidor oferecendo suporte para o que os registros descrevem para o cliente.

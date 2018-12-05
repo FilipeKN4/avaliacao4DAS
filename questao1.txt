@@ -1,0 +1,69 @@
+15/0059213 - Filipe Coelho Hilário Barcelos 
+15/0037074 - Igor Gabriel M. Evangelista
+
+Resposta: 
+Componente de Software: Como não se tem um consenso sobre a definição de componentes, é possível
+encontrar na literatura inúmeras definições sobre o assunto. Spagnoli et. al [1], apresenta
+três abordagens diferentes, sobre a definição de componentes, fazendo uma comparação das características
+entre cada uma delas.
+Na primeira definição, Sametinger [2] apresenta componentes como sendo alguma parte do sistema de
+software que é identificável e reusável, ou como o estado seguinte de abstração depois de funções, 
+módulos e classes. Assim, ele define que “componentes de software reusáveis são artefatos autocontidos, 
+facilmente identificáveis que descrevem e/ou executam funções específicas e têm interfaces claras, 
+documentação apropriada e uma condição de reuso definida”. 
+Na segunda definição, Brown [3] caracteriza componente como sendo “conjunto independente de serviços reutilizáveis”, 
+ou seja, “independente” indica a ausência do vínculo do componente com o contexto em que ele pode ser usado, pois os
+componentes não devem ser desenvolvidos com dependências fixas entre si;  “serviços reusáveis” implica que o componente
+provê habilidades que muitos outros componentes podem acessar. Além disso, Um componente pode ser substituído por outro
+em uma aplicação, desde que ambos atendam à mesma especificação.
+E por fim, na terceira definição, Szyperski [4], define que “componente de software é uma unidade de composição com
+interfaces contratualmente especificadas e apenas explícitas dependências de contexto. Componente de software pode ser
+usado independente e combinado com outras partes”. Ou seja, busca compreender as propriedades dos componentes de serem
+unidades com atuação independente, de poderem ser combinados a outras partes e de não apresentarem persistência de estado. 
+A aplicação e uso de tecnologias de componentes para o desenvolvimento de software está diretamente relacionado à visão de
+componentes como componentes de código. Nesta visão é desconsiderada a possibilidade de se ter componentes como artefatos 
+presentes em todas as fases do ciclo de desenvolvimento, e os componentes são considerados apenas artefatos da fase de 
+implementação [1]. Nesse sentido [3] e [4], ressaltam este aspecto mais maduro de DBC, onde se preocupam exclusivamente com 
+componentes como sendo a abstração seguinte a funções, módulos e classes. Em contrapartida [2], trata componentes não apenas
+como componentes de códigos, mas também como todo possível tipo de componente independente da forma. Isto é, ressalta melhor
+uma situação de DBC quando o foco não estiver apenas no reuso de componentes de código, e sim de componentes em todas as fases
+do processo de desenvolvimento de software.
+ 
+Modelo de Componente: Segundo Spagnoli et. al [1] existe um relativo consenso na literatura de que o nome “modelo de componentes”
+pode ser usado para identificar o conjunto de padrões e convenções com as quais os componentes devem estar em conformidade. Dessa
+forma, um modelo de componente representa um elemento da arquitetura do sistema do qual são definidos os padrões e convenções 
+impostas aos componentes do sistema descrevendo, assim, a função de cada um e como eles interagem entre si. Com esses padrões e 
+convenções, busca-se expressar restrições do projeto arquitetural ou global. Não existe um consenso claro sobre o que pode ou deve
+estar incluído em um modelo de componentes, porém espera-se através dele definir os seguintes padrões e convenções:
+
+Tipos de componentes: que são definidos em termos da interface que implementam, ou seja, cada componente pertence ao(s) tipo(s) da(s)
+interface(s) que é(são) implementada(s) por ele, onde se um componente implementa as interfaces “A” e “B”, então ele é do tipo “A” e “B”.
+Formas de interação: que são formas de interação entre o componentes e entre o componente e o framework de componentes, de modo que
+são definidas através de como os componentes são localizados, o protocolo de comunicação usado e como a qualidade dos serviços é alcançada.
+
+Definição de recursos: que podem ser tanto providos por um framework de componentes quanto por um componente utilizado no framework.
+O modelo de componentes descreve quais recursos estão disponíveis a quais componentes, além de como e quando eles são associados a 
+esses recursos. Já o framework vê os componentes como recursos a serem gerenciados.
+
+Framework de Componente: De acordo com a definição utilizada por Spagnoli et. al [1] o “framework de componente” representa a base sobre
+a qual esses padrões e convenções do modelo de componentes são empregados, de modo que é a implementação dos serviços que dão suporte ao 
+modelo de componentes. Ele possui como função o gerenciamento dos recursos compartilhados pelos componentes e provém um mecanismo que 
+possibilite a comunicação entre eles. Um framework de componente é complementar a um modelo de componente, de modo que as definições 
+estabelecidas pelo modelo de componentes devem ser suportadas pelo framework de componentes e o framework, por sua vez, deve respeitar 
+e regular as definições estabelecidas pelo modelo de componentes. O uso de framework de componentes também é útil aos desenvolvedores de 
+componentes e aplicações ao permitir que eles não precisem se preocupar em implementar funções muito complexas para troca de mensagens, 
+passagem de dados e ligação de componentes. Sendo assim, o framework de componentes pode ser visto como infra-estrutura de componentes, 
+podendo ser responsável por ao menos uma das categorias entre, empacotamento, distribuição, segurança, gerenciamento de transações e 
+comunicação assíncrona.
+
+
+Referências
+[1] SPAGNOLI, L. A.; BECKER, K. Um Estudo Sobre o Desenvolvimento Baseado em Componentes. Porto Alegre. 2003
+
+[2] SAMETINGER, Johannes. Software Engineering with Reusable Components. New York: Springer, 1997. 271p.
+
+[3] BROWN, Alan W.; Short, Keith. On Components and Objects: The Foundation of Component-Based Development. 
+In: INTERNATIONAL SYMPOSIUM ON ASSESSMENT OF SOFTWARE TOOLS AND TECHNOLOGIES (SAST 97), 5, 1997, Pittsburgh, PA. 
+Proceedings… Pittsburgh, PA; IEEE Press, 1997. p.112-121
+
+[4] SZYPERSKI, Clemens. Component Software: beyond object-oriented programming. Harlow: Addison-Wesley, 1999. 411p.
